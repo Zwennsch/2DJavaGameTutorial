@@ -1,6 +1,8 @@
 package com.svenjava.game;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -42,13 +44,19 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 	}
 	public void draw() {
+		Graphics g2 = this.getGraphics();
+		g2.drawImage(bufferedImage,0,0,  width, height, null);
+		g2.dispose();
 	}
 	public void render() {
+		if (g != null) {
+			g.setColor(new Color(66, 150, 244));
+			g.fillRect(0, 0, width, height);
+		}
 	}
-	int x = 0;
+	
 	public void update() {
-		x++;
-		System.out.println(x);
+		
 	}
 	private void init() {
 		running = true;
